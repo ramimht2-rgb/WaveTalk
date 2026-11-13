@@ -1,4 +1,4 @@
-name: بناء تطبيق WaveTalk
+name: WaveTalk Android Build
 
 on:
   workflow_dispatch:
@@ -11,22 +11,22 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: تحميل الملفات
+      - name: Checkout
         uses: actions/checkout@v4
 
-      - name: إعداد جافا
+      - name: Setup Java
         uses: actions/setup-java@v4
         with:
           distribution: temurin
           java-version: '17'
 
-      - name: إعداد Gradle
+      - name: Setup Gradle
         uses: gradle/actions/setup-gradle@v4
 
-            - name: بناء التطبيق
+      - name: Build APK
         run: gradle assembleDebug
 
-      - name: استخراج التطبيق
+      - name: Upload APK
         uses: actions/upload-artifact@v4
         with:
           name: WaveTalk-APK
