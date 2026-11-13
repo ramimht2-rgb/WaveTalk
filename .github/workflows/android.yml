@@ -23,10 +23,8 @@ jobs:
       - name: إعداد Gradle
         uses: gradle/actions/setup-gradle@v4
 
-      - name: بناء التطبيق
-        run: |
-          chmod +x gradlew
-          ./gradlew assembleDebug
+            - name: بناء التطبيق
+        run: gradle assembleDebug
 
       - name: استخراج التطبيق
         uses: actions/upload-artifact@v4
